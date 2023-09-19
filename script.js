@@ -1,6 +1,6 @@
 
 function renderGrid(size){
-    let width = Math.floor(900/size)-2;
+    let width = 800/size-2;
     let height = width;
 
     for(let i=0;i<size*size;i++){
@@ -10,7 +10,23 @@ function renderGrid(size){
         cellElement.style.width = width+"px";
         document.getElementById("gridDiv").append(cellElement);
     }
+
+    attachHoverEffect();
 }
 
+function attachHoverEffect(){
+    document.querySelectorAll(".cell").forEach((elem)=>{
+        elem.addEventListener("mouseover", (e)=>{
+            elem.style.backgroundColor = "black";
+            console.log("hello")
+        })
+    })
+}
 
-renderGrid(10);
+renderGrid(20);
+
+document.querySelector("#btnNewGrid").addEventListener("click",()=>{
+    const gridSize = Number(prompt("Enter Grid Size"));
+    document.getElementById("gridDiv").innerHTML = '';
+    renderGrid(gridSize);
+})
