@@ -27,6 +27,10 @@ renderGrid(20);
 
 document.querySelector("#btnNewGrid").addEventListener("click",()=>{
     const gridSize = Number(prompt("Enter Grid Size"));
+    if(gridSize > 100){
+        alert("Please enter size less than 100");
+        return;
+    }
     document.getElementById("gridDiv").innerHTML = '';
     renderGrid(gridSize);
 })
