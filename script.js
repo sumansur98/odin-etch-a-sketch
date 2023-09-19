@@ -30,3 +30,9 @@ document.querySelector("#btnNewGrid").addEventListener("click",()=>{
     document.getElementById("gridDiv").innerHTML = '';
     renderGrid(gridSize);
 })
+
+document.querySelector("#btnClear").addEventListener("click",()=>{
+    document.querySelectorAll(".cell").forEach((elem)=>{
+       elem.style.backgroundColor = "white";
+    })
+})
